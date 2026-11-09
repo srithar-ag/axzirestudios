@@ -33,6 +33,14 @@ export interface ExtensionItem {
   releaseStatus: string;
 }
 
+export const resolveAsset = (path: string): string => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const clean = path.replace(/^\/+/, '');
+  const base = import.meta.env.BASE_URL || './';
+  return base.endsWith('/') ? `${base}${clean}` : `${base}/${clean}`;
+};
+
 export const studioConfig = {
   studioName: 'AxZire Studios',
   brandWordmark: 'AxZire Studios',
@@ -42,13 +50,13 @@ export const studioConfig = {
     'Thoughtfully engineered browser extensions that make everyday browsing smarter, simpler, and more enjoyable.',
   studioStatement:
     'Independent browser extension development for Chrome, Brave, and Firefox.',
-  officialLogo: '/assets/aistudio/AXZIRE_STUDIOS_LOGO_8d228309.jpg',
+  officialLogo: resolveAsset('assets/aistudio/AXZIRE_STUDIOS_LOGO_8d228309.jpg'),
   developerName: 'Srithar AG',
   developerRole: 'Founder & Developer, AxZire Studios',
   developerBio:
     "I'm Srithar AG, the founder and developer behind AxZire Studios. I focus on creating browser extensions and digital experiences that solve practical problems through thoughtful engineering and intuitive design.",
   developerHeadline: 'Building Experiences, One Extension at a Time.',
-  developerPhoto: '/assets/developer.jpg',
+  developerPhoto: resolveAsset('assets/developer.jpg'),
   contactEmail: 'sritharag17@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/praveen-r-1b6629373/',
   githubUrl: 'https://github.com/srithar-ag',
@@ -83,22 +91,22 @@ export const extensionCatalogue: ExtensionItem[] = [
       'Local-first privacy architecture — no remote surveillance or data tracking',
       'Instant export to Markdown, text, and JSON formats',
     ],
-    icon: '/assets/aistudio/image_689fe5d8.png',
-    posterImage: '/assets/aistudio/image_689fe5d8.png',
+    icon: resolveAsset('assets/aistudio/image_689fe5d8.png'),
+    posterImage: resolveAsset('assets/aistudio/image_689fe5d8.png'),
     promotionalVideo: '',
     screenshots: [
       {
-        url: '/assets/aistudio/image_689fe5d8.png',
+        url: resolveAsset('assets/aistudio/image_689fe5d8.png'),
         label: 'In-Player Extension View',
         caption: 'Full browser extension active right beside the YouTube player with live timestamp capture.',
       },
       {
-        url: '/assets/aistudio/image_ec5a21f3.png',
+        url: resolveAsset('assets/aistudio/image_ec5a21f3.png'),
         label: 'How It Works (3 Steps)',
         caption: '1. Open any video, 2. Name it & save, 3. Jump back anytime with zero sign-up.',
       },
       {
-        url: '/assets/aistudio/image_6d329584.png',
+        url: resolveAsset('assets/aistudio/image_6d329584.png'),
         label: 'Instant 1-Click Timestamping',
         caption: 'Stamp the exact time you need with live timecode precision and optional labels.',
       },
@@ -147,22 +155,22 @@ export const extensionCatalogue: ExtensionItem[] = [
       'Zero permission access to email content — 100% client-side privacy',
       'Lightweight Manifest V3 extension with zero inbox slowdown',
     ],
-    icon: '/assets/aistudio/Gmail_Brushstroke_Over_Misty_Anime_Mountains_e24964df.png',
-    posterImage: '/assets/aistudio/Gmail_Red_Dead_Theme_Transformation_cb9b699c.png',
+    icon: resolveAsset('assets/aistudio/Gmail_Brushstroke_Over_Misty_Anime_Mountains_e24964df.png'),
+    posterImage: resolveAsset('assets/aistudio/Gmail_Red_Dead_Theme_Transformation_cb9b699c.png'),
     promotionalVideo: '',
     screenshots: [
       {
-        url: '/assets/aistudio/Gmail_Red_Dead_Theme_Transformation_cb9b699c.png',
+        url: resolveAsset('assets/aistudio/Gmail_Red_Dead_Theme_Transformation_cb9b699c.png'),
         label: 'Cinematic Red Dead Theme Transformation',
         caption: 'Before (default light Gmail) vs After (cinematic Red Dead-inspired theme).',
       },
       {
-        url: '/assets/aistudio/Gmail_Red_Dead_Theme_Before___After_eef5e854.png',
+        url: resolveAsset('assets/aistudio/Gmail_Red_Dead_Theme_Before___After_eef5e854.png'),
         label: 'Custom Gmail Theme & Light/Dark Modes',
         caption: 'Custom Gmail theme with cinematic look, light & dark modes, and one-click apply.',
       },
       {
-        url: '/assets/aistudio/Gmail_Brushstroke_Over_Misty_Anime_Mountains_e24964df.png',
+        url: resolveAsset('assets/aistudio/Gmail_Brushstroke_Over_Misty_Anime_Mountains_e24964df.png'),
         label: 'Aesthetic Japanese Anime & Scenic Themes',
         caption: 'Curated artistic themes with Mt. Fuji, cherry blossoms, and twilight gradients.',
       },

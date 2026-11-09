@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar.tsx';
 import { Footer } from './components/Footer.tsx';
 import { ContactModal } from './components/ContactModal.tsx';
@@ -28,7 +28,7 @@ function ScrollToTop() {
 function MainLayout() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const location = useLocation();
-  const isSupportPage = location.pathname === '/support';
+  const isSupportPage = location.pathname.includes('/support');
 
   return (
     <div
@@ -66,9 +66,9 @@ function MainLayout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <MainLayout />
-    </BrowserRouter>
+    </HashRouter>
   );
 }

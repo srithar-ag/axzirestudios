@@ -1,0 +1,6 @@
+{
+  "name": "AxZire Studios",
+  "description": "Official website of AxZire Studios, an independent browser extension studio by Srithar AG. Engineering thoughtfully crafted browser experiences for Chrome, Brave, and Firefox.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
